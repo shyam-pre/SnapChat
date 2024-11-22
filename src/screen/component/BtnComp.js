@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import styles from '../InitailScreen/styles';
+import styles from '../InitailScreen/Styles';
 
 const BtnComp = ({title,onPress, btnStyle}) => {
   return (

@@ -1,17 +1,69 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, Image, TouchableOpacity, StyleSheet, Platform} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import imagePath from '../Constants/imagePath';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styles from '../InitailScreen/styles.js';
 import BtnComp from '../component/BtnComp';
 import navigationStrings from '../Constants/navigationStrings';
+import styles from './Styles.js'
 import color from '../styles/color';
+
+import notifee, { AndroidImportance } from '@notifee/react-native';
+
 const InitialScreen = ({navigation}) => {
-  const handlePress = () => {
+
+  // const handlePress = () => {
+    async function onDisplayNotification() {
+    // Request permissions (required for iOS)
+    if(Platform.OS === 'ios'){
+      await notifee.requestPermission()
+    }
+    
+    // Create a channel (required for Android)
+    const channelId = await notifee.createChannel({
+      id: 'default5',
+      name: 'Default Channel5',
+      sound:'android_app_src_main_res_raw_noti',
+      importance:AndroidImportance.HIGH
+    });
+
+    // // Display a notification
+    // await notifee.displayNotification({
+    //   title: 'Notification Title',
+    //   body: 'Main body content of the notification',
+    //   android: {
+    //     channelId,
+    //     // smallIcon: 'name-of-a-small-icon', // optional, defaults to 'ic_launcher'.
+    //     // pressAction is needed if you want the notification to open the app when pressed
+    //     pressAction: {
+    //       id: 'default',
+    //     },
+    //   },
+    // });
+  await notifee.displayNotification({
+      title: '<p style="color: #4caf50;"><b>Styled HTMLTitle</span></p></b></p> &#128576;',
+      subtitle: '&#129395;',
+      body:
+        'The <p style="text-decoration: line-through">body can</p> also be <p style="color: #ffffff; background-color: #9c27b0"><i>styled too</i></p> &#127881;!',
+      android: {
+        channelId,
+        color: '#4caf50',
+        actions: [
+          {
+            title: '<b>Dance</b> &#128111;',
+            pressAction: { id: 'dance' },
+          },
+          {
+            title: '<p style="color: #f44336;"><b>Cry</b> &#128557;</p>',
+            pressAction: { id: 'cry' },
+          },
+        ],
+      },
+    });
+    
   };
   const handleSignUp = (screen) => {
     navigation.navigate(screen)
@@ -33,7 +85,7 @@ const InitialScreen = ({navigation}) => {
             borderRadius: wp(2),
             marginBottom: hp(2),
           }}
-          onPress={handlePress}
+          onPress={onDisplayNotification}
         />
         <BtnComp
           title="SignUp"
