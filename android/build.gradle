@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = "34.0.0"
-        minSdkVersion = 21
+        minSdkVersion = 23
         compileSdkVersion = 34
         targetSdkVersion = 34
 
@@ -21,5 +21,6 @@ buildscript {
 
         // add this line
           classpath 'com.google.gms:google-services:4.3.3'
+    // id("com.google.gms.google-services") version "4.4.2" apply false
     }
 }
