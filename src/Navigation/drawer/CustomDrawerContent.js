@@ -8,6 +8,7 @@ import navigationStrings from '../../component/Constants/navigationStrings';
 
 import ic_home from '../../assets/Icon/home.png';
 import ic_map from '../../assets/Icon/map.png';
+
 import ic_rightArrow from '../../assets/Icon/rightArrow.png';
 
 const CustomDrawerContent = props => {
