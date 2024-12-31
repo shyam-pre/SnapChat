@@ -27,14 +27,15 @@ import {
   PermissionsAndroid,
   Alert,
 } from 'react-native';
-import {requestUserPermission} from './src/Utils/NotificationServices';
-import messaging from '@react-native-firebase/messaging';
-import setupNotifications from './src/firebase/usePushNotification';
-import usePushNotification from './src/firebase/usePushNotification';
+// import {requestUserPermission} from './src/Utils/NotificationServices';
+// import messaging from '@react-native-firebase/messaging';
+// import setupNotifications from './src/firebase/usePushNotification';
+// import usePushNotification from './src/firebase/usePushNotification';
 import Routes from './src/Navigation/Routes';
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store/store';
 import {NavigationContainer} from '@react-navigation/native';
+import usePushNotification from './src/firebase/usePushNotification';
 
 const App = () => {
   // useEffect(() => {
@@ -48,9 +49,9 @@ const App = () => {
   //   getFCMToken()
   // }, []);
 
-  useEffect(() => {
-    usePushNotification();
-  }, []);
+  // useEffect(() => {
+  //   usePushNotification();
+  // }, []);
 
   // const getFCMToken = async () => {
   //   const fcmToken = await messaging().getToken();
@@ -60,6 +61,7 @@ const App = () => {
   //     console.log('Failed', 'No token received');
   //   }
   // };
+
   return (
     <View style={{flex: 1}}>
       {/* <Provider store={store}> */}

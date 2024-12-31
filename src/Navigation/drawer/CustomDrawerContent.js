@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -12,8 +19,6 @@ import ic_map from '../../assets/Icon/map.png';
 import ic_rightArrow from '../../assets/Icon/rightArrow.png';
 
 const CustomDrawerContent = props => {
-  console.log('YYmm');
-
   const CustomDrawerItem = ({iconName, label, onPress, arrowIcon}) => {
     return (
       <TouchableOpacity style={[styles.drawerItem]} onPress={onPress}>
@@ -23,6 +28,7 @@ const CustomDrawerContent = props => {
       </TouchableOpacity>
     );
   };
+
   return (
     <View style={styles.drawerContainer}>
       <Image
@@ -37,8 +43,8 @@ const CustomDrawerContent = props => {
       <CustomDrawerItem
         iconName={ic_home}
         arrowIcon={ic_rightArrow}
-        label="Home"
-        onPress={() => props.navigation.navigate(navigationStrings.HomeScreen)}
+        label="PP"
+        onPress={() => props.navigation.navigate('PP')}
       />
       <CustomDrawerItem
         iconName={ic_map}
@@ -57,7 +63,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: hp(2),
     paddingHorizontal: wp(4),
-    // backgroundColor: '#000',
   },
   drawerItem: {
     flexDirection: 'row',

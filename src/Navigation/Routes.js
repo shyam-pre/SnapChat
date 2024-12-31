@@ -101,6 +101,8 @@ import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import TabRoutes from './TabRoutes';
 import {Splash} from '../screen';
+import OnbordindStack from './OnboradStack';
+import DrawerNavigator from './drawer/DrawerNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -145,7 +147,21 @@ const Routes = () => {
           }}>
           <Stack.Screen
             name={navigationStrings.routes.login}
-            component={TabRoutes}
+            component={DrawerNavigator}
+            // component={TabRoutes}
+          />
+        </Stack.Navigator>
+      );
+
+    case navigationStrings.routes.onboard:
+      return (
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen
+            name={navigationStrings.routes.onboard}
+            component={OnbordindStack}
           />
         </Stack.Navigator>
       );
