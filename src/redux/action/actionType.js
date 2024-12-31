@@ -1,5 +1,4 @@
-// export default {
-//   IS_LOGIN: 'IS_LOGIN',
-//   CLEARE_REDUX_STATE: 'CLEARE_REDUX_STATE',
-// };
 export const SET_MAIN_ROUTE = 'SET_MAIN_ROUTE';
+export const INCREMENT_COUNT = 'INCREMENT_COUNT';
+export const DECREMENT_COUNT = 'DECREMENT_COUNT';
+export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';

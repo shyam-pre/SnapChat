@@ -8,6 +8,7 @@ import {
   SignUpScreen,
   Splash,
 } from '../../screen';
+import Onbording1 from '../../screen/onbording/Onbording1';
 import Profile from '../../screen/profile/Profile';
 
 export default {
@@ -20,12 +21,13 @@ export default {
   Camera: 'Camera',
   HomeScreen: 'HomeScreen',
   Profile: 'Profile',
+  Onbording1: 'Onbording1',
 
   routes: {
     splash: 'splash',
     login: 'login',
     logout: 'logout',
-    // onboard: 'onboard',
+    onboard: 'onboard',
     // registerLogOut:'registerLogOut'
   },
 };

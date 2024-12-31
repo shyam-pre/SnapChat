@@ -8,6 +8,7 @@ import reducer from '../reducer';
 import {persistReducer, persistStore} from 'redux-persist';
 import rootReducer from '../reducer';
 const sagaMiddleware = createSagaMiddleware();
+
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
@@ -22,8 +23,11 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
       immutableCheck: false,
-    }),
+    }).concat(sagaMiddleware), // Add sagaMiddleware here
 });
+
+// Attach sagaMiddleware if you're using Redux Saga
+// sagaMiddleware.run(rootSaga); // Uncomment if rootSaga exists
 
 const persistore = persistStore(store);
 export {store, persistore};

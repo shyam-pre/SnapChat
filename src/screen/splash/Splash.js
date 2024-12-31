@@ -24,10 +24,12 @@ const Splash = () => {
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      if (await getData(async_key.status)) {
+      if (await getData(async_key.token)) {
         dispatch(setMainRoute({mainRoute: navigationStrings.routes.login}));
-      } else {
+      } else if (await getData(async_key.status)) {
         dispatch(setMainRoute({mainRoute: navigationStrings.routes.logout}));
+      } else {
+        dispatch(setMainRoute({mainRoute: navigationStrings.routes.onboard}));
       }
     }, 2000);
 

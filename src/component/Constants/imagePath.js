@@ -10,4 +10,7 @@ export default {
   ic_map_bold: require('../../assets/Icon/map_bold.png'),
   ic_camera: require('../../assets/Icon/camera.png'),
   ic_camera_bold: require('../../assets/Icon/camera_bold.png'),
+  ic_profile: require('../../assets/Icon/user.png'),
+  ic_search: require('../../assets/Icon/search.png'),
+  ic_comment: require('../../assets/Icon/comment.png'),
 };

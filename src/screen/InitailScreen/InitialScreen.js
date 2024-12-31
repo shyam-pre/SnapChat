@@ -80,9 +80,12 @@ const InitialScreen = ({navigation}) => {
   };
 
   const handleSignUp = screen => {
-    navigation.navigate(screen);
     dispatch(setMainRoute({mainRoute: navigationStrings.routes.login}));
-    storeData(async_key.status, true);
+    // navigation.reset({
+    //   index: 7,
+    //   routes: [{name: navigationStrings.HomeScreen}],
+    // });
+    storeData(async_key.token, '94329984092348');
   };
 
   // setLoading(false);
@@ -117,7 +120,10 @@ const InitialScreen = ({navigation}) => {
             borderRadius: wp(2),
             marginBottom: hp(2),
           }}
-          onPress={() => handleSignUp(navigationStrings.SignUpScreen)}
+          onPress={() => {
+            dispatch(setMainRoute({mainRoute: navigationStrings.routes.login}));
+            storeData(async_key.token, '94329984092348');
+          }}
           logotest={{color: '#fff'}}
         />
       </View>

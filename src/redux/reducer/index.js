@@ -17,9 +17,13 @@
 
 import {combineReducers} from '@reduxjs/toolkit';
 import routeReducer from './authReducer';
+import counterReducer from './counterReducer';
+import productReducer from './productReducer';
 
 const rootReducer = combineReducers({
   route: routeReducer,
+  products: productReducer, // Add product reducer here
+  counter: counterReducer,
 });
 
 export default rootReducer;
