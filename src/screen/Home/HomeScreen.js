@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,8 @@ import {setMainRoute} from '../../redux/action/authAction';
 import navigationStrings from '../../component/Constants/navigationStrings';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
+import {apiFunction} from '../../provider/ApiInfo';
+import Loader from '../../component/Loader';
 
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
@@ -62,6 +64,7 @@ const HomeScreen = ({navigation}) => {
   const handleLogOut = () => {
     dispatch(setMainRoute({mainRoute: navigationStrings.routes.logout}));
   };
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -169,94 +172,7 @@ const HomeScreen = ({navigation}) => {
           source={require('../../assets/Icon/home.png')}
           style={{height: 20, width: 40}}
         />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
-        <Image
-          source={require('../../assets/Icon/home.png')}
-          style={{height: 20, width: 40}}
-        />
+
         <TouchableOpacity onPress={handleLogOut} style={{borderWidth: 1}}>
           <Text style={{marginTop: 40}}>Logout</Text>
         </TouchableOpacity>

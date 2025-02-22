@@ -230,8 +230,42 @@ import imagePath from '../component/Constants/imagePath';
 import navigationStrings from '../component/Constants/navigationStrings';
 import {Camera, Chat, Maps, Storages} from '../screen';
 import DrawerNavigator from './drawer/DrawerNavigator';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {View} from 'react-native-reanimated/lib/typescript/Animated';
+import ChatExample from '../screen/Hooks/useRef/ChatExample';
+import FadeInExample from '../screen/Hooks/useRef/FadeInExample';
+import ForwardRef from '../screen/Hooks/useRef/ForwardRef';
+import UseContext from '../screen/Hooks/useRef/AppContext';
+import HomeScreentsx from '../screen/tsx/HomeScreentsx';
 const BottomTab = createBottomTabNavigator();
-
+const Stack = createNativeStackNavigator();
+const MapStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name={navigationStrings.Maps} component={Maps} />
+      <Stack.Screen
+        name={navigationStrings.ChatExample}
+        component={ChatExample}
+      />
+      <Stack.Screen
+        name={navigationStrings.FadeInExample}
+        component={FadeInExample}
+      />
+      <Stack.Screen
+        name={navigationStrings.ForwardRef}
+        component={ForwardRef}
+      />
+      <Stack.Screen
+        name={navigationStrings.HomeScreentsx}
+        component={HomeScreentsx}
+      />
+      {/* <Stack.Screen
+        name={navigationStrings.UseContext}
+        component={UseContext}
+      /> */}
+    </Stack.Navigator>
+  );
+};
 const TabRoutes = () => {
   return (
     <BottomTab.Navigator
@@ -245,7 +279,7 @@ const TabRoutes = () => {
       }}>
       <BottomTab.Screen
         name={navigationStrings.Maps}
-        component={Maps}
+        component={MapStack}
         options={{
           // tabBarLabel: 'dfdfdf',
           tabBarIcon: ({focused}) => (
@@ -260,6 +294,7 @@ const TabRoutes = () => {
           ),
         }}
       />
+
       <BottomTab.Screen
         name={navigationStrings.Chat}
         component={Chat}
@@ -277,6 +312,7 @@ const TabRoutes = () => {
           ),
         }}
       />
+
       <BottomTab.Screen
         name={navigationStrings.Camera}
         component={Camera}

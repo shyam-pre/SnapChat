@@ -1,4 +1,4 @@
-export default {
+const images = {
   logo: require('../../assets/Image/logokalyan.jpeg'),
   back: require('../../assets/Icon/back.png'),
   ic_chat: require('../../assets/Icon/chat.png'),
@@ -13,4 +13,11 @@ export default {
   ic_profile: require('../../assets/Icon/user.png'),
   ic_search: require('../../assets/Icon/search.png'),
   ic_comment: require('../../assets/Icon/comment.png'),
+  ic_bannerHome: require('../../assets/Image/bannerHome.jpg'),
+  img_banner1: require('../../assets/Image/banner1.jpg'),
+  img_banner2: require('../../assets/Image/banner2.jpg'),
+  img_banner3: require('../../assets/Image/banner3.jpg'),
+  img_banner4: require('../../assets/Image/banner4.jpg'),
 };
+
+export default images;

@@ -52,6 +52,20 @@ const CustomDrawerContent = props => {
         label="Profile"
         onPress={() => props.navigation.navigate(navigationStrings.Profile)}
       />
+      <CustomDrawerItem
+        iconName={ic_map}
+        arrowIcon={ic_rightArrow}
+        label="CartComponent"
+        onPress={() =>
+          props.navigation.navigate(navigationStrings.CartComponent)
+        }
+      />
+      <CustomDrawerItem
+        iconName={ic_map}
+        arrowIcon={ic_rightArrow}
+        label="AllHooks"
+        onPress={() => props.navigation.navigate(navigationStrings.AllHooks)}
+      />
     </View>
   );
 };

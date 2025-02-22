@@ -33,6 +33,15 @@ const AuthStack = () => {
 
 export default AuthStack;
 
+// const AuthStack = () => {
+//    const Stack = createNativeStackNavigator()
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="" component={InitialScreen} />
+//     </Stack.Navigator>
+//   );
+// }
+
 // import navigationStrings from '../component/Constants/navigationStrings.js';
 // import {
 //   LoginScreen,

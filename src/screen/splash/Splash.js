@@ -5,6 +5,7 @@ import {async_key, getData} from '../../provider/UserPreference';
 import {useNavigation} from '@react-navigation/native';
 import navigationStrings from '../../component/Constants/navigationStrings';
 import {setMainRoute} from '../../redux/action/authAction';
+import {Image} from 'react-native-reanimated/lib/typescript/Animated';
 
 const Splash = () => {
   const navigation = useNavigation();
@@ -39,6 +40,7 @@ const Splash = () => {
   return (
     <View>
       <Text>Splash</Text>
+      {/* <Image /> */}
     </View>
   );
 };

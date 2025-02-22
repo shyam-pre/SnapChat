@@ -43,6 +43,8 @@ import Profile from '../../screen/profile/Profile';
 import CustomDrawerContent from './CustomDrawerContent';
 import TabRoutes from '../TabRoutes';
 import PP from '../../screen/PP';
+import CartComponent from '../../screen/cart/CartComponent';
+import AllHooks from '../../screen/Hooks/AllHooks';
 // import Icon from 'react-native-vector-icons/MaterialIcons'; // Add this for icons
 
 const Drawer = createDrawerNavigator();
@@ -76,6 +78,11 @@ const DrawerNavigator = () => {
       />
       <Drawer.Screen component={PP} name={'PP'} />
       <Drawer.Screen component={Profile} name={navigationStrings.Profile} />
+      <Drawer.Screen
+        name={navigationStrings.CartComponent}
+        component={CartComponent}
+      />
+      <Drawer.Screen name={navigationStrings.AllHooks} component={AllHooks} />
     </Drawer.Navigator>
   );
 };

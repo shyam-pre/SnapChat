@@ -1,101 +1,124 @@
-// // import {View, Text, Image, ScrollView} from 'react-native';
-// // import React, {Suspense, useState} from 'react';
-// // import Loader from '../../component/Loader';
-// // const lazyComp = React.lazy(() => import('../Home/HomeScreen'));
-// // const Chat = () => {
-// //   const [loading, setLoading] = useState(false);
-// //   return (
-// //     <ScrollView>
-// //       <Loader loading={loading} />
-// //       <Text>Chat</Text>
-
-// //       <Image source={require('../../assets/Icon/home.png')} />
-// //       <Suspense fallback={<Text>dffsadfsdf</Text>}>
-// //         <lazyComp />
-// //       </Suspense>
-// //     </ScrollView>
-// //   );
-// // };
-
-// // export default Chat;
-
-// import {View, Text, Image, ScrollView, ActivityIndicator} from 'react-native';
-// import React, {lazy, Suspense, useState} from 'react';
+// import {View, Text, Image, ScrollView} from 'react-native';
+// import React, {Suspense, useState} from 'react';
 // import Loader from '../../component/Loader';
-// import HomeHeader from '../../component/HomeHeader';
-// import { SafeAreaView } from 'react-native-safe-area-context';
-
-// // Lazy load the HomeScreen component
-// const LazyComp = React.lazy(() => import('../Home/HomeScreen'));
-
-// const Chat = ({navigation}) => {
+// const lazyComp = React.lazy(() => import('../Home/HomeScreen'));
+// const Chat = () => {
 //   const [loading, setLoading] = useState(false);
-
 //   return (
-//     <SafeAreaView>
-//       {/* Show the Loader while loading */}
+//     <ScrollView>
 //       <Loader loading={loading} />
+//       <Text>Chat</Text>
 
-//       {/* <Text onPress={() => navigation.openDrawer()}>Chat</Text>
-//       <Text>Chat</Text> */}
-
-//       {/* Use Suspense with a fallback component */}
-//       {/* <Suspense fallback={<ActivityIndicator size="large" color="blue" />}>
-//         <LazyComp />
-//       </Suspense> */}
-
-//       <HomeHeader onPress={{}} />
-//     </SafeAreaView>
+//       <Image source={require('../../assets/Icon/home.png')} />
+//       <Suspense fallback={<Text>dffsadfsdf</Text>}>
+//         <lazyComp />
+//       </Suspense>
+//     </ScrollView>
 //   );
 // };
 
 // export default Chat;
 
-import React from 'react';
-import WrapperContainer from '../../component/WrapperContainer';
-import {FlatList, Image, Text, View} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  ActivityIndicator,
+  StyleSheet,
+  Button,
+} from 'react-native';
+import React, {
+  lazy,
+  Suspense,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
+import Loader from '../../component/Loader';
 import HomeHeader from '../../component/HomeHeader';
-import {data} from '../chat/Data';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import user1 from '../../assets/Icon/user1.png';
-import imagePath from '../../component/Constants/imagePath';
-const Chat = () => {
-  const renderItem = ({item}) => {
-    console.log('LKLLLL', item);
+import Swiper from 'react-native-swiper';
+import SwiperComponent from './SwiperComponent';
+import images from '../../component/Constants/imagePath';
+import {useHomeDataQuery} from '../../redux/AllApi/AllApi';
 
-    return (
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginHorizontal: wp(4),
-          marginTop: hp(2),
-        }}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={user1} style={{height: hp(4), width: wp(8)}} />
-          <Text style={{marginLeft: wp(4)}}>{item.name}</Text>
-        </View>
-        <Image
-          source={imagePath.ic_comment}
-          style={{height: hp(4), width: wp(4)}}
-        />
-      </View>
-    );
-  };
+// Lazy load the HomeScreen component
+const LazyComp = React.lazy(() => import('../Home/HomeScreen'));
+
+const Chat = ({navigation}) => {
+  const [loading, setLoading] = useState(false);
+  const [count, setCount] = useState(0);
+  const [imgData, setImgData] = useState([]);
+  // const {data, error, isLoading} = useHomeDataQuery();
+  // console.log('dataaaaaaaaaaaa', data);
+  // console.log('errrrrrrrrrr', error);
+  // console.log('islodinggggggggg', isLoading);
+
+  // Memoized imagesData
+  const imagesData = useMemo(
+    () => [
+      {id: 1, img: images.img_banner1},
+      {id: 2, img: images.img_banner2},
+      {id: 3, img: images.img_banner3},
+      {id: 4, img: images.img_banner4},
+    ],
+    [],
+  );
+
   return (
-    <WrapperContainer backgroundColor={'#fff'}>
-      <HomeHeader contentText="Chat" />
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        onEndReachedThreshold={0.4}
-      />
-      <Text>Chat</Text>
-    </WrapperContainer>
+    <SafeAreaView style={{flex: 1}}>
+      {/* Show the Loader while loading */}
+      <Loader loading={loading} />
+      {/* <Text onPress={() => navigation.openDrawer()}>Chat</Text>
+      <Text>Chat</Text> */}
+      {/* <Suspense
+        fallback={
+          <View style={{marginTop: hp(20)}}>
+            <ActivityIndicator size="large" color="blue" />
+          </View>
+        }>
+        <LazyComp />
+      </Suspense> */}
+      <SwiperComponent imagesData={imagesData || []} />
+      <Text
+        onPress={() => setCount(pre => pre + 1)}
+        style={{padding: 10, borderWidth: 1}}>
+        llllllllll
+      </Text>
+      <Text>{count}</Text>
+    </SafeAreaView>
   );
 };
 
 export default Chat;
+const styles = StyleSheet.create({
+  slide1: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});
